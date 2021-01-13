@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three in One</title>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container{
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            width: min-content;
+        }
+
+        input{
+            display: none;
+        }
+
+        .slider-container{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            transform: translateX(30%);
+        }
+
+        label{
+            font-family: Helvetica, sans-serif;
+            cursor: pointer;
+            transition: all .3s ease-in;
+            font-size: 26px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        label::after, label::before{
+            position: absolute;
+            content: '';
+            display: inline-block;
+        }
+
+        label::before{
+            width: 80px;
+            height: 30px;
+            background: #dca;
+            border-radius: 36px;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%); 
+        }
+
+        label::after{
+            width: 24px;
+            height: 24px;
+            background: salmon;
+            border-radius: 50%;
+            right: calc(100% + 80px - 24px);
+            top: 50%;
+            transform: translate(10%, -50%);
+            transition: all .3s ease-in;
+        }
+
+        input[type="checkbox"]:checked ~ label{
+            color: salmon;
+        }
+
+        input[type="checkbox"]:checked ~ label::after{
+            right:100%;
+            transform: translate(-10%, -50%);
+        }
+
+        
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slider-container"><input type="checkbox" id="cheap"><label for="cheap">Cheap</label></div>
+        <div class="slider-container"><input type="checkbox" id="good"><label for="good">Good</label></div>
+        <div class="slider-container"><input type="checkbox" id="fast"><label for="fast">fast</label></div>
+    </div>
+
+	<script src="app.js"></script>
+
+</body>
+</html>
